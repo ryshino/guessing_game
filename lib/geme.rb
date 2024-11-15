@@ -8,21 +8,23 @@ answer = "_" * question.size
 life = 5
 
 while life >= 1
-  puts "現在のライフ#{life}"
-  puts "問題:#{answer}"
+  puts "ライフ'#{life}'"
+  puts "問題'#{answer}'"
   input = gets.chomp
   input = input.downcase
+
   if input.size > 1
     puts "入力できるのは1文字です。"
     next
   end
+  
   unless ('a'..'z').include?(input)
     puts "入力できるのはアルファベットのみです。"
     next
   end
 
   target_numbers = []
-  question.split('').each_with_index do |question_char, index|
+  question.chars.each_with_index do |question_char, index|
     target_numbers.push(index) if question_char == input
   end
 
@@ -30,7 +32,7 @@ while life >= 1
     target_numbers.each do |num|
       answer[num] = input
     end
-    target_numbers.clear
+
     unless answer.include?("_")
       puts "クリア！"
       break
