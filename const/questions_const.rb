@@ -1,15 +1,14 @@
 module QuestionsConst
-  QUESTIONS = [
-    "apple",
-    "strawberry",
-    "cherry",
-    "persimmon",
-    "pumpkin",
-    "carrot",
-    "watermelon",
-    "pear",
-    "tomato",
-    "persimmon",
-    "eggplant"
+  QUESTIONS = %w[
+    apple
+    strawberry
+    cherry
+    persimmon
+    pumpkin
+    carrot
+    watermelon
+    pear
+    tomato
+    eggplant
   ].map(&:freeze).freeze
 end
