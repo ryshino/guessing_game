@@ -50,15 +50,6 @@ class HangmanGame
       single_character?(input) && validate_alphabet?(input)
     end
 
-    def search_quesiton_char(question, input)
-      target_numbers = []
-      question.chars.each_with_index do |question_char, index|
-        target_numbers.push(index) if question_char == input
-      end
-
-      target_numbers
-    end
-
     def process_guess(input)
       target_positions = find_matching_positions(input)
       
