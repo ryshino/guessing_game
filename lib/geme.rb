@@ -6,12 +6,10 @@ question = QUESTIONS.sample
 answer = "_" * question.size
 
 life = 5
-index = 0
-target_numbers = []
 
 while life >= 1
   puts "現在のライフ#{life}"
-  puts "#{answer}"
+  puts "問題:#{answer}"
   input = gets.chomp
   input = input.downcase
   if input.size > 1
@@ -22,11 +20,12 @@ while life >= 1
     puts "入力できるのはアルファベットのみです。"
     next
   end
-  while question.size > index
-    target_numbers.push(index) if question[index] == input
-    index += 1
+
+  target_numbers = []
+  question.split('').each_with_index do |question_char, index|
+    target_numbers.push(index) if question_char == input
   end
-  index = 0
+
   unless target_numbers.empty?
     target_numbers.each do |num|
       answer[num] = input
