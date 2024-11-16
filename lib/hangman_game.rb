@@ -2,11 +2,10 @@ require_relative '../const/questions_const.rb'
 require_relative '../module/input_validator.rb'
 
 class HangmanGame
-  include QuestionsConst
   include InputValidator
 
   def initialize
-    @question = QUESTIONS.sample
+    @question = QuestionsConst.questions.sample
     @answer = "_" * @question.size
     @life = 5
   end
