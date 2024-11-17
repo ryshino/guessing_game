@@ -52,6 +52,7 @@ make test
 - [Ruby の定数やfreeze の扱い方が難しい
 ](https://yulii.github.io/ruby-freeze-method-20150922.html)
 - [teratail](https://teratail.com/questions/285790)
+- [Railsで学ぶSOLID（1）: 単一責任の原則（翻訳）](https://techracho.bpsinc.jp/hachi8833/2018_03_27/54130)
 - [【RSpec】RubyのみでRSpecを用いる方法について簡単にまとめてみた【Railsなし】](https://techtechmedia.com/ruby-setup-rspec/)
 - [Dockerを使ってRubyの開発環境を構築してみました](https://zenn.dev/bloomer/articles/98df661f7c339e)
 - [ゼロからわかる Ruby 超入門（書籍）](https://gihyo.jp/book/2018/978-4-297-10123-7)
