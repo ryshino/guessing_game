@@ -7,9 +7,8 @@ RSpec.describe HangmanGame do
   let(:game) { described_class.new }
 
   before do
-    # QuestionsConst.questionsが呼ばれたら['ruby']を返す
-    # ['ruby'].sampleとなるため、@questionに必ず'ruby'が入る
-    allow(QuestionsConst).to receive(:questions).and_return(['ruby'])
+    # ランダム性を排除するためselect_questionが呼ばれたら'ruby'を返す
+    allow(HangmanGame).to receive(:select_question).and_return('ruby')
   end
 
   describe '#initialize' do

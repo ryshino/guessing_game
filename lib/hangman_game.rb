@@ -3,11 +3,14 @@ require_relative '../module/input_validator.rb'
 
 class HangmanGame
   include InputValidator
+  include QuestionsConst
+
+  LIFE = 5
 
   def initialize
-    @question = QuestionsConst.questions.sample
+    @question = self.class.select_question
     @answer = "_" * @question.size
-    @life = 5
+    @life = LIFE
   end
 
   def play
@@ -25,6 +28,10 @@ class HangmanGame
       end
     end
     display_answer
+  end
+
+  def self.select_question
+    QUESTIONS.sample
   end
 
   private
