@@ -1,5 +1,3 @@
-# spec/lib/hangman_game_spec.rb
-
 require_relative '../../lib/hangman_game'
 require_relative '../../const/questions_const.rb'
 
@@ -94,19 +92,19 @@ RSpec.describe HangmanGame do
   describe '#valid_input?' do
     context 'アルファベット1文字の場合' do
       it '有効な入力として判定されること' do
-        expect(game.send(:valid_input?, 'a')).to be_truthy
+        expect(game.send(:valid_input?, 'a')).to be true
       end
     end
 
     context '複数文字の場合' do
       it '無効な入力として判定されること' do
-        expect(game.send(:valid_input?, 'ab')).to be_falsey
+        expect(game.send(:valid_input?, 'ab')).to be false
       end
     end
 
     context '数字の場合' do
       it '無効な入力として判定されること' do
-        expect(game.send(:valid_input?, '1')).to be_falsey
+        expect(game.send(:valid_input?, '1')).to be false
       end
     end
   end
