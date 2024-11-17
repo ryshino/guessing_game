@@ -90,6 +90,10 @@ RSpec.describe HangmanGame do
   end
 
   describe '#valid_input?' do
+    before do
+      allow(game).to receive(:puts)
+    end
+        
     context 'アルファベット1文字の場合' do
       it '有効な入力として判定されること' do
         expect(game.send(:valid_input?, 'a')).to be true
