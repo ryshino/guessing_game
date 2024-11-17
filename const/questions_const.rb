@@ -1,14 +1,19 @@
 module QuestionsConst
   QUESTIONS = %w[
-    apple
-    strawberry
-    cherry
-    persimmon
-    pumpkin
-    carrot
+    cat
+    sky
+    book
+    lamp
+    pencil
+    monkey
+    rainbow
+    diamond
+    computer
+    elephant
+    butterfly
+    chocolate
+    dictionary
     watermelon
-    pear
-    tomato
-    eggplant
+    university
   ].map(&:freeze).freeze
 end
