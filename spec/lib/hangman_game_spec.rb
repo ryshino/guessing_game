@@ -128,14 +128,14 @@ RSpec.describe HangmanGame do
     context '全ての文字が正解の文字に変わった場合' do
       it 'trueを返すこと' do
         game.instance_variable_set(:@answer, 'ruby') # @answerの値を'ruby'にする
-        expect(game.send(:solved?)).to be_truthy
+        expect(game.send(:solved?)).to be true
       end
     end
 
     context '正解していない文字がある場合' do
       it 'falseを返すこと' do
         game.instance_variable_set(:@answer, 'r_b_') # @answerの値を'r_b_'にする
-        expect(game.send(:solved?)).to be_falsey
+        expect(game.send(:solved?)).to be false
       end
     end
   end
