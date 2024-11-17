@@ -18,8 +18,11 @@ class HangmanGame
       display_status
       input = get_input
 
+      # アルファベット一文字以外の場合は再度入力を求める
       next unless valid_input?(input)
       
+      # 入力された文字が問題の文字と一致する場合は回答を更新し、
+      # 一致しない場合はライフを減らす
       process_guess(input)
 
       if solved?
@@ -27,6 +30,7 @@ class HangmanGame
         break
       end
     end
+
     display_answer
   end
 
@@ -66,6 +70,7 @@ class HangmanGame
       end
     end
 
+    # 入力された文字と問題の各文字を比較し、一致する位置を配列で返す
     def find_matching_positions(input)
       target_positions = []
       @question.chars.each_with_index do |char, index|
