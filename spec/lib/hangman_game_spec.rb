@@ -1,5 +1,3 @@
-# spec/lib/hangman_game_spec.rb
-
 require_relative '../../lib/hangman_game'
 require_relative '../../const/questions_const.rb'
 
@@ -7,9 +5,8 @@ RSpec.describe HangmanGame do
   let(:game) { described_class.new }
 
   before do
-    # QuestionsConst.questionsが呼ばれたら['ruby']を返す
-    # ['ruby'].sampleとなるため、@questionに必ず'ruby'が入る
-    allow(QuestionsConst).to receive(:questions).and_return(['ruby'])
+    # ランダム性を排除するためselect_questionが呼ばれたら'ruby'を返す
+    allow(HangmanGame).to receive(:select_question).and_return('ruby')
   end
 
   describe '#initialize' do
@@ -93,21 +90,25 @@ RSpec.describe HangmanGame do
   end
 
   describe '#valid_input?' do
+    before do
+      allow(game).to receive(:puts)
+    end
+        
     context 'アルファベット1文字の場合' do
       it '有効な入力として判定されること' do
-        expect(game.send(:valid_input?, 'a')).to be_truthy
+        expect(game.send(:valid_input?, 'a')).to be true
       end
     end
 
     context '複数文字の場合' do
       it '無効な入力として判定されること' do
-        expect(game.send(:valid_input?, 'ab')).to be_falsey
+        expect(game.send(:valid_input?, 'ab')).to be false
       end
     end
 
     context '数字の場合' do
       it '無効な入力として判定されること' do
-        expect(game.send(:valid_input?, '1')).to be_falsey
+        expect(game.send(:valid_input?, '1')).to be false
       end
     end
   end
@@ -131,14 +132,14 @@ RSpec.describe HangmanGame do
     context '全ての文字が正解の文字に変わった場合' do
       it 'trueを返すこと' do
         game.instance_variable_set(:@answer, 'ruby') # @answerの値を'ruby'にする
-        expect(game.send(:solved?)).to be_truthy
+        expect(game.send(:solved?)).to be true
       end
     end
 
     context '正解していない文字がある場合' do
       it 'falseを返すこと' do
         game.instance_variable_set(:@answer, 'r_b_') # @answerの値を'r_b_'にする
-        expect(game.send(:solved?)).to be_falsey
+        expect(game.send(:solved?)).to be false
       end
     end
   end
